@@ -1,3 +1,4 @@
+// ! THIS CODE IS NOT USED IN THE PROJECT
 /**
  * This code is an alternative approach of creating a cellular automata image
  * keep it and try to make it work using it
