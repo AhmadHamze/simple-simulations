@@ -4,6 +4,7 @@ function setup() {
   gridHSize = 40;
   gridVSize = 40;
   grid = initializeGrid(gridVSize, gridHSize);
+  // Randomly initialize the grid by filling the grid matrix with 0s and 1s
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       grid[i][j] = floor(random(2)); // 0 or 1
