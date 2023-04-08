@@ -1,12 +1,15 @@
 function setup() {
   frameRate(1);
+  const container = createDiv("");
+  container.class("container");
   const canvas = createCanvas(400, 400);
   canvas.parent("container");
   iter = 0;
-  iteration = createP("Iteration: " + iter);
+  iteration = createP("Iteration: 0");
+  iteration.parent("container");
   iteration.class("iteration");
   startButton = createButton("Start");
-  startButton.class("iteration");
+  startButton.parent("container");
   startButton.mousePressed(startStopSimulation);
   gridHSize = 40;
   gridVSize = 40;
@@ -36,8 +39,10 @@ function draw() {
       drawRectangularCell(grid, i, j, height / gridHSize);
     }
   }
+  startButton.html("Start");
   if (running) {
     iteration.html("Iteration: " + iter);
+    startButton.html("Stop");
     const gridCopy = grid.map((arr) => [...arr]);
     for (let i = 0; i < gridVSize; i++) {
       for (let j = 0; j < gridHSize; j++) {
