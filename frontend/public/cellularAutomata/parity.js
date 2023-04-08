@@ -4,6 +4,7 @@ function setup() {
   canvas.parent("container");
   iter = 0;
   iteration = createP("Iteration: ");
+  iteration.class("iteration");
   gridHSize = 40;
   gridVSize = 40;
   grid = initializeGrid(gridVSize, gridHSize);

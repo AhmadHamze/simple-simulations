@@ -1,0 +1,13 @@
+/* container is the id of the canvas */
+#container {
+    display: flex;
+    justify-content: center;
+}
+.iteration {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+}
