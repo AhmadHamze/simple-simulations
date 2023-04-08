@@ -11,8 +11,8 @@ function setup() {
   startButton = createButton("Start");
   startButton.parent("container");
   startButton.mousePressed(startStopSimulation);
-  gridHSize = 40;
-  gridVSize = 40;
+  gridHSize = 20;
+  gridVSize = 20;
   running = false;
   grid = initializeGrid(gridVSize, gridHSize);
   // Create a grid with a single 0 in the middle

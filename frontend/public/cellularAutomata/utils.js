@@ -8,7 +8,7 @@ function drawRectangularCell(grid, i, j, size) {
   // If the grid is 1, draw a white rectangle
   if (grid[i][j] === 1) {
     fill(255);
-    stroke(0);
+    stroke(200);
     rect(x, y, size, size);
   }
 }
