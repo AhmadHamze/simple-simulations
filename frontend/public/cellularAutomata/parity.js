@@ -2,6 +2,7 @@ function setup() {
   frameRate(1);
   const canvas = createCanvas(400, 400);
   canvas.parent("container");
+  maxIter = 64;
   gridHSize = 40;
   gridVSize = 40;
   grid = initializeGrid(gridVSize, gridHSize);
@@ -25,15 +26,15 @@ function draw() {
       drawRectangularCell(grid, i, j, height / gridHSize);
     }
   }
-
-  for (let i = 0; i < 32; i++) {
+  let k = 0;
+  while (k <= maxIter) {
     const gridCopy = grid.map((arr) => [...arr]);
-    for (let i = 0; i < grid.length; i++) {
-      for (let j = 0; j < grid[i].length; j++) {
-        iM = (i - 1) % grid.length;
-        iP = (i + 1) % grid.length;
-        jM = (j - 1) % grid[i].length;
-        jP = (j + 1) % grid[i].length;
+    for (let i = 0; i < gridVSize; i++) {
+      for (let j = 0; j < gridHSize; j++) {
+        iM = (i - 1) % gridVSize;
+        iP = (i + 1) % gridVSize;
+        jM = (j - 1) % gridHSize;
+        jP = (j + 1) % gridHSize;
         grid[i][j] =
           (gridCopy.at(iM).at(j) +
             gridCopy.at(iP).at(j) +
@@ -42,5 +43,6 @@ function draw() {
           2;
       }
     }
+    k++;
   }
 }
