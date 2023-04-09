@@ -15,16 +15,10 @@ function setup() {
   gridVSize = 20;
   running = false;
   grid = initializeGrid(gridVSize, gridHSize);
-  // Create a grid with a single 0 in the middle
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
-      if (i === gridHSize / 2 && j === gridVSize / 2) {
-        grid[i][j] = 0;
-        continue;
-      }
-      grid[i][j] = 1;
-    }
-  }
+}
+
+function doubleClicked() {
+  switchCell(grid, gridVSize, gridHSize);
 }
 
 function startStopSimulation() {
@@ -34,28 +28,29 @@ function startStopSimulation() {
 function draw() {
   background(51);
 
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
-      drawRectangularCell(grid, i, j, height / gridHSize);
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      grid[i][j].drawCell();
     }
   }
   startButton.html("Start");
   if (running) {
     iteration.html("Iteration: " + iter);
     startButton.html("Stop");
-    const gridCopy = grid.map((arr) => [...arr]);
+    const gridCopy = grid.map((arr) =>
+      arr.map((cell) => new Cell(cell.x, cell.y, cell.size, cell.alive))
+    );
     for (let i = 0; i < gridVSize; i++) {
       for (let j = 0; j < gridHSize; j++) {
         iM = (i - 1) % gridVSize;
         iP = (i + 1) % gridVSize;
         jM = (j - 1) % gridHSize;
         jP = (j + 1) % gridHSize;
-        grid[i][j] =
-          (1 +
-            gridCopy.at(iM).at(j) +
-            gridCopy.at(iP).at(j) +
-            gridCopy.at(i).at(jM) +
-            gridCopy.at(i).at(jP)) %
+        grid[i][j].alive =
+          (gridCopy.at(iM).at(j).alive +
+            gridCopy.at(iP).at(j).alive +
+            gridCopy.at(i).at(jM).alive +
+            gridCopy.at(i).at(jP).alive) %
           2;
       }
     }
