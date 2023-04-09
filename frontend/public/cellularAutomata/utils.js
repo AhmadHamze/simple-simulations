@@ -5,21 +5,10 @@ function initializeGrid(gridVSize, gridHSize) {
     .map(() => new Array(gridVSize).fill(0));
   for (let i = 0; i < gridVSize; i++) {
     for (let j = 0; j < gridHSize; j++) {
-      grid[i][j] = new Cell(i * size, j * size, size);
+      grid[i][j] = new Cell(i * size, j * size, size, 0);
     }
   }
   return grid;
-}
-
-function drawRectangularCell(grid, i, j, size) {
-  const x = i * size;
-  const y = j * size;
-  // If the grid is 1, draw a white rectangle
-  if (grid[i][j] === 1) {
-    fill(255);
-    stroke(200);
-    rect(x, y, size, size);
-  }
 }
 
 /**
@@ -32,11 +21,11 @@ function drawRectangularCell(grid, i, j, size) {
  * @param {number} alive The state of the cell, 0 if dead, 1 if alive
  */
 class Cell {
-  constructor(x, y, size) {
+  constructor(x, y, size, alive = 0) {
     this.x = x;
     this.y = y;
     this.size = size;
-    this.alive = 0;
+    this.alive = alive;
   }
   drawCell() {
     if (!this.alive) {
@@ -50,7 +39,7 @@ class Cell {
 /**
  * The function that switches the state of a cell
  * Use it inside an event listener function, e.g. doubleClicked()
- * @param {cell[][]} grid
+ * @param {Cell[][]} grid
  * @param {number} gridVSize
  * @param {number} gridHSize
  */
