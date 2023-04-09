@@ -1,5 +1,14 @@
-function initializeGrid(cols, rows) {
-  return new Array(cols).fill(0).map(() => new Array(rows).fill(0));
+function initializeGrid(gridVSize, gridHSize) {
+  const size = height / gridHSize;
+  const grid = new Array(gridVSize)
+    .fill(0)
+    .map(() => new Array(gridVSize).fill(0));
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      grid[i][j] = new Cell(i * size, j * size, size);
+    }
+  }
+  return grid;
 }
 
 function drawRectangularCell(grid, i, j, size) {
