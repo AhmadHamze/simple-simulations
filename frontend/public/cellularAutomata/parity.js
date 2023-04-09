@@ -2,7 +2,7 @@ function setup() {
   frameRate(1);
   const container = createDiv("");
   container.class("container");
-  const canvas = createCanvas(400, 400);
+  const canvas = createCanvas(640, 640);
   canvas.parent("container");
   iter = 0;
   iteration = createP("Iteration: 0");
@@ -11,8 +11,8 @@ function setup() {
   startButton = createButton("Start");
   startButton.parent("container");
   startButton.mousePressed(startStopSimulation);
-  gridHSize = 20;
-  gridVSize = 20;
+  gridHSize = 64;
+  gridVSize = 64;
   running = false;
   grid = initializeGrid(gridVSize, gridHSize);
 }
