@@ -46,3 +46,27 @@ class Cell {
     }
   }
 }
+
+/**
+ * The function that switches the state of a cell
+ * Use it inside an event listener function, e.g. doubleClicked()
+ * @param {cell[][]} grid
+ * @param {number} gridVSize
+ * @param {number} gridHSize
+ */
+function switchCell(grid, gridVSize, gridHSize) {
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      const cell = grid[i][j];
+      const distance = dist(
+        mouseX,
+        mouseY,
+        cell.x + cell.size / 2,
+        cell.y + cell.size / 2
+      );
+      if (distance < cell.size / 2) {
+        cell.alive = (cell.alive + 1) % 2;
+      }
+    }
+  }
+}

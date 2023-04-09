@@ -6,16 +6,17 @@ function setup() {
   gridVSize = 20;
   grid = initializeGrid(gridVSize, gridHSize);
 }
-    }
-  }
+
+function doubleClicked() {
+  switchCell(grid, gridVSize, gridHSize);
 }
 
 function draw() {
-  background(51);
+  background(0);
 
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
-      drawRectangularCell(grid, i, j, height / gridHSize);
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      grid[i][j].drawCell();
     }
   }
 }
