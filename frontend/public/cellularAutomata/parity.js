@@ -10,7 +10,10 @@ function setup() {
   iteration.class("iteration");
   startButton = createButton("Start");
   startButton.parent("container");
+  randomizeButton = createButton("Randomize");
+  randomizeButton.parent("container");
   startButton.mousePressed(startStopSimulation);
+  randomizeButton.mousePressed(randomize);
   gridHSize = 64;
   gridVSize = 64;
   running = false;

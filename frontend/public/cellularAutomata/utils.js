@@ -59,3 +59,12 @@ function switchCell(grid, gridVSize, gridHSize) {
     }
   }
 }
+
+// TODO: better to add arguments to the function instead of using global variables
+function randomize() {
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      grid[i][j].alive = floor(random(2));
+    }
+  }
+}
