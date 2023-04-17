@@ -20,7 +20,7 @@ function setup() {
   grid = initializeGrid(gridVSize, gridHSize);
 }
 
-function doubleClicked() {
+function mousePressed() {
   switchCell(grid, gridVSize, gridHSize);
 }
 
