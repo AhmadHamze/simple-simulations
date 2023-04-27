@@ -1,5 +1,5 @@
 function setup() {
-  frameRate(1);
+  frameRate(2);
   const container = createDiv("");
   container.class("container");
   const canvas = createCanvas(640, 640);
