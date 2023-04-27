@@ -1,15 +1,30 @@
+.page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* container is the id of the canvas */
 #container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer */
-    user-select: none; /* Generic */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  user-select: none; /* Generic */
 }
 .iteration {
-    font-size: large;
-    font-weight: bold;
+  font-size: large;
+  font-weight: bold;
 }
