@@ -68,3 +68,16 @@ function randomize() {
     }
   }
 }
+
+class Walker {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  drawWalker() {
+    stroke("purple");
+    // strokeWeight(5);
+    fill("purple");
+    ellipse(this.x, this.y, 5, 5);
+  }
+}
