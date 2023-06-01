@@ -15,6 +15,10 @@ function setup() {
   gridVSize = 64;
   running = false;
   grid = initializeGrid(gridVSize, gridHSize);
+  walker = new Walker(
+    width / 2 + height / gridHSize / 2,
+    height / 2 + height / gridHSize / 2
+  );
 }
 
 function startStopSimulation() {
@@ -29,11 +33,8 @@ function draw() {
       grid[i][j].drawCell();
     }
   }
-  const walker = new Walker(
-    width / 2 + height / gridHSize / 2,
-    height / 2 + height / gridHSize / 2
-  );
   walker.drawWalker();
+  walker.move(height / gridHSize);
   startButton.html("Start");
   if (running) {
     iteration.html("Iteration: " + iter);

@@ -76,8 +76,26 @@ class Walker {
   }
   drawWalker() {
     stroke("purple");
-    // strokeWeight(5);
     fill("purple");
     ellipse(this.x, this.y, 5, 5);
+  }
+  move(sizeOfCell) {
+    const direction = floor(random(5));
+    switch (direction) {
+      case 1:
+        this.x = (this.x + sizeOfCell) % height;
+        break;
+      case 2:
+        this.x = (this.x - sizeOfCell) % height;
+        break;
+      case 3:
+        this.y = (this.y + sizeOfCell) % height;
+        break;
+      case 4:
+        this.y = (this.y - sizeOfCell) % height;
+        break;
+      default:
+        break;
+    }
   }
 }
