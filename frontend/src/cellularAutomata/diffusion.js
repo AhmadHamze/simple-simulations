@@ -1,5 +1,5 @@
 function setup() {
-  frameRate(1);
+  frameRate(5);
   const container = createDiv("");
   container.class("container");
   const canvas = createCanvas(640, 640);
@@ -34,9 +34,11 @@ function draw() {
     }
   }
   walker.drawWalker();
-  walker.move(height / gridHSize);
   startButton.html("Start");
   if (running) {
+    for (let i = 0; i <= 100; i++) {
+      walker.move(height / gridHSize);
+    }
     iteration.html("Iteration: " + iter);
     startButton.html("Stop");
     iter++;
