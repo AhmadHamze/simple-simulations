@@ -86,13 +86,15 @@ class Walker {
         this.x = (this.x + sizeOfCell) % height;
         break;
       case 2:
-        this.x = (this.x - sizeOfCell) % height;
+        this.x =
+          this.x > 0 ? (this.x - sizeOfCell) % height : height - sizeOfCell / 2;
         break;
       case 3:
         this.y = (this.y + sizeOfCell) % height;
         break;
       case 4:
-        this.y = (this.y - sizeOfCell) % height;
+        this.y =
+          this.y > 0 ? (this.y - sizeOfCell) % height : height - sizeOfCell / 2;
         break;
       default:
         break;
