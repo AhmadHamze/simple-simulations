@@ -11,6 +11,19 @@ function initializeGrid(gridVSize, gridHSize) {
   return grid;
 }
 
+function initializeGridColored(gridVSize, gridHSize) {
+  const size = height / gridHSize;
+  const grid = new Array(gridVSize)
+    .fill(0)
+    .map(() => new Array(gridVSize).fill(0));
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      grid[i][j] = new ColoredCell(i * size, j * size, size, 0);
+    }
+  }
+  return grid;
+}
+
 /**
  * The Cell class represents a cell in the grid.
  * White cells are dead, black cells are alive.
