@@ -1,5 +1,5 @@
 function setup() {
-  frameRate(5);
+  // frameRate(5);
   const container = createDiv("");
   container.class("container");
   const canvas = createCanvas(640, 640);
@@ -14,11 +14,7 @@ function setup() {
   gridHSize = 64;
   gridVSize = 64;
   running = false;
-  grid = initializeGrid(gridVSize, gridHSize);
-  walker = new Walker(
-    width / 2 + height / gridHSize / 2,
-    height / 2 + height / gridHSize / 2
-  );
+  grid = initializeGridColored(gridVSize, gridHSize);
 }
 
 function startStopSimulation() {
@@ -33,12 +29,18 @@ function draw() {
       grid[i][j].drawCell();
     }
   }
-  walker.drawWalker();
+  const walker = new Walker(
+    width / 2 + height / gridHSize / 2,
+    height / 2 + height / gridHSize / 2
+  );
   startButton.html("Start");
   if (running) {
     for (let i = 0; i <= 100; i++) {
       walker.move(height / gridHSize);
     }
+    increaseCellColor(grid, gridVSize, gridHSize, walker.x, walker.y);
+    // * You can draw the walker, usefull for debugging
+    // walker.drawWalker();
     iteration.html("Iteration: " + iter);
     startButton.html("Stop");
     iter++;
