@@ -36,6 +36,27 @@ class Cell {
   }
 }
 
+class ColoredCell extends Cell {
+  constructor(x, y, size, alive = 0, color = 0) {
+    super(x, y, size, alive);
+    this.color = color;
+  }
+  drawCell() {
+    if (this.alive) {
+      const startColor = color(0, 128, 255);
+      const endColor = color(255, 0, 0);
+      const lerpedColor = lerpColor(startColor, endColor, this.color);
+      fill(lerpedColor);
+      stroke(255);
+      rect(this.x, this.y, this.size, this.size);
+    } else {
+      fill(255);
+      stroke(255);
+      rect(this.x, this.y, this.size, this.size);
+    }
+  }
+}
+
 /**
  * The function that switches the state of a cell
  * Use it inside an event listener function, e.g. doubleClicked()
