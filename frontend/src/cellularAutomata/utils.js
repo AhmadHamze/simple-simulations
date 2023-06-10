@@ -94,6 +94,24 @@ function switchCell(grid, gridVSize, gridHSize) {
   }
 }
 
+function increaseCellColor(grid, gridVSize, gridHSize, posX, posY) {
+  for (let i = 0; i < gridVSize; i++) {
+    for (let j = 0; j < gridHSize; j++) {
+      const cell = grid[i][j];
+      const distance = dist(
+        posX,
+        posY,
+        cell.x + cell.size / 2,
+        cell.y + cell.size / 2
+      );
+      if (distance < cell.size / 2) {
+        cell.alive = 1;
+        cell.color = min(cell.color + 0.01, 1);
+      }
+    }
+  }
+}
+
 // TODO: better to add arguments to the function instead of using global variables
 function randomize() {
   for (let i = 0; i < gridVSize; i++) {
