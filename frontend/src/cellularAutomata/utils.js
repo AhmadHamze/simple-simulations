@@ -56,8 +56,14 @@ class ColoredCell extends Cell {
   }
   drawCell() {
     if (this.alive) {
-      const startColor = color(0, 128, 255);
-      const endColor = color(255, 0, 0);
+      let startColor, endColor;
+      if (this.color < 0.5) {
+        startColor = color(0, 128, 255); // light blue
+        endColor = color(0, 255, 128); // light green
+      } else {
+        startColor = color(0, 255, 128); // light green
+        endColor = color(255, 0, 0); // red
+      }
       const lerpedColor = lerpColor(startColor, endColor, this.color);
       fill(lerpedColor);
       stroke(255);
