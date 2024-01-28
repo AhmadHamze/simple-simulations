@@ -8,6 +8,10 @@ For now it contains:
 
 ![Cellular Automata](./images/conway.png)
 
+2. Simulation of diffusion using a random walker
+
+![Diffusion](./images/diffusion.png)
+
 ## Usage
 
 Navigate to "frontend" directory and run `npm install` once that's done run `npm start`.
